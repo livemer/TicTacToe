@@ -14,6 +14,7 @@ const u = [
 ]
 let isPlayer1 = true
 let play = true
+let winner = ""
 
 for (let i = 0; i < items.length; i++) {
   items[i].id = i
@@ -38,11 +39,7 @@ items.forEach((element) => {
 })
 
 document.querySelector(".restart").addEventListener("click", function (e) {
-  items.forEach((element) => {
-    element.innerText = ""
-  })
-  isPlayer1 = true
-  next_player.innerText = "X"
+  location.reload()
 })
 
 function WinCheck() {
@@ -59,11 +56,13 @@ function WinCheck() {
     if (player1Arr.includes(u[i][0]) &&player1Arr.includes(u[i][1]) &&player1Arr.includes(u[i][2])) {
       alert("Победил X")
       document.querySelector("h2").innerText = "Победил X"
+      winner = "X"
       OnEnd()
     }
     else if (player2Arr.includes(u[i][0]) &&player2Arr.includes(u[i][1]) &&player2Arr.includes(u[i][2])) {
       alert("Победил O")
       document.querySelector("h2").innerText = "Победил O"
+      winner = "O"
       OnEnd()
     }
   }
@@ -73,7 +72,8 @@ function OnEnd(){
   next_player.innerText = ""
   play = false
   items.forEach((element) => {
-    element.style.color = "gray"
-    element.style.bordercolor = "gray"
+    if(element.innerText != winner){
+      element.style.color = "gray"
+    }
   })
 }

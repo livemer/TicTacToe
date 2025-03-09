@@ -38,9 +38,15 @@ body{
     border: rgba(255, 255, 255, 0.397) 2px solid;
     background: rgba(255, 255, 255, 0.021);
     backdrop-filter: blur(15px);
-    color: white;
+    color: rgb(233, 233, 233);
     font-size: 25px;
     cursor: pointer;
+    transition: all 0.7s;
+  }
+  button:hover{
+    color: white;
+    font-size: 30px;
+    transition: all 0.7s;
   }
 }
 
